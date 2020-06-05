@@ -25,6 +25,9 @@ OBJECTS = $(addprefix $(OBJDIR)/, $(addsuffix $(OBJEXT), $(INPUTS)))
 CFLAGS = $(addprefix -D, $(DEFINES)) -I$(HDRDIR) -c -o
 LDFLAGS = -o
 
+# Calling run without building will build
+# without optimizations and debug flags
+
 .PHONY: debug
 .PHONY: release
 .PHONY: build

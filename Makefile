@@ -1,13 +1,13 @@
 # Edit to fit needs
-CC = gcc
+CC = clang
 LIBS =
 DEFINES =
 SANS = undefined,address,leak
 WARNS = all pedantic extra
 OPTIMIZE = -O3
-OUTPUT =
+OUTPUT = main
 EXEC = exec
-ARGS =
+ARGS = 3000 100
 
 # Shouldn't really be touched
 HDRDIR = include

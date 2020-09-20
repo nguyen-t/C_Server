@@ -1,9 +1,23 @@
 #ifndef HTTP_H
 #define HTTP_H
 
-// String used to idenfity HTTP requests
-#define HTTP_REGEX "^(OPTIONS|GET|HEAD|POST|PUT|DELETE|TRACE|CONNECT) \\/.* HTTP\\/(1\\.1|2\\.0)\r\n" \
-                   "([a-zA-Z]+(-[a-zA-Z]+)*: (!|#|\\$|%|&|'|\\*|\\+|-|\\.|\\^|`|\\||~|\\w)+\r\n)*(\r\n.*)*"
+/*
+ * HTTP_REGEX
+ * Validates HTTP requests
+ * WARNING: Does not validate URL
+ * Line 1: Matches HTTP method
+ * Line 2: Matches URL path
+ * Line 3: Matches URL query parameters
+ * Line 4: Matches HTTP version
+ * Line 5: Matches HTTP header
+ * Line 6: Matches body
+ */
+#define HTTP_REGEX "^(OPTIONS|GET|HEAD|POST|PUT|DELETE|TRACE|CONNECT) " \
+                   "(\\/(\\w|~|-|\\.)*)*" \
+                   "(\\w|~|-|\\.|!|\\*|\\(|\\)|;|:|@|&|=|\\+|\\$|,|\\?|%|#\\[|\\])* " \
+                   "HTTP\\/(1\\.1|2\\.0)\r\n" \
+                   "([a-zA-Z]+(-[a-zA-Z]+)*: (,|;|=|!|#|\\$|%|&|'|\\*|\\+|-|\\.|\\^|`|\\||~|\\w)+\r\n)*" \
+                   "(\r\n)?"
 
 typedef struct {
   union {

@@ -163,7 +163,7 @@ void http_body_detach(HTTP_Message* msg) {
   length += strlen(msg->part_b);
   length += strlen(msg->part_c);
   length += strlen(msg->header);
-  msg->body = strndup("\0");
+  msg->body = strdup("\0");
   msg->length = length;
 }
 

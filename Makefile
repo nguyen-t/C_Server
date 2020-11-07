@@ -55,7 +55,7 @@ clean:
 $(OUTPUT): $(OBJECTS)
 	$(CC) $(LDFLAGS) $@ $^ $(addprefix -l, $(LIBS))
 
-$(OBJDIR)/%$(OBJEXT): $(SRCDIR)/%$(SRCEXT) $(HEADERS)
+$(OBJDIR)/%$(OBJEXT): $(SRCDIR)/%$(SRCEXT)
 	$(CC) $(CFLAGS) $@ $<
 
 $(HDRDIR) $(SRCDIR) $(OBJDIR) $(TSTDIR): % :
